@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const computerPlay = () => {
+            r = Math.floor(Math.random() * 3); // Random int from 0 to 2
+            if(r == 0){
+                return "Rock";
+            }else if(r == 1){
+                return "Paper";
+            }else{
+                return "Scissors";
+            }
+        }
+
+        const playRound = (playerSelection, computerSelection) => {
+            switch(playerSelection){
+                case "rock":
+                    if(computerSelection == "Rock"){
+                        return "Tie";
+                    }else if(computerSelection == "Paper"){
+                        return "CP Wins"
+                    }else{
+                        return "Player Winse"
+                    }
+                case "paper":
+                    if(computerSelection == "Rock"){
+                        return "Player Wins";
+                    }else if(computerSelection == "Paper"){
+                        return "Tie"
+                    }else{
+                        return "CP Wins"
+                    }
+                case "scissors":
+                    if(computerSelection == "Rock"){
+                        return "CP Wins";
+                    }else if(computerSelection == "Paper"){
+                        return "Player Wins"
+                    }else{
+                        return "Tie"
+                    }
+            }
+        }
+
+
+        const game = () => {
+            // TODO: Prompt validation
+            let playerSelection = window.prompt("Select Rock, Paper, or Scissors").toLowerCase();
+
+            let computerSelection = computerPlay();
+
+            return playRound(playerSelection, computerSelection);
+            
+        }
+
+        let plr = 0;
+        let cp = 0;
+        let tie = 0;
+        for(let i=0; i<5; i++){
+            g = game();
+            if(g == "CP Wins"){
+                cp++;
+            }else if(g == "Player Wins"){
+                plr++;
+            }else{
+                tie++;
+            }
+
+            console.log(plr);
+            console.log(cp);
+            console.log(tie);
+            console.log("---");
+        }
+
+        
+
+
+
+    </script>
+</body>
+</html>
